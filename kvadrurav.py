@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import math
 
 app = Flask(__name__)
@@ -37,6 +37,17 @@ def kvUr():
             otvet="Сам дурак"
 
     return render_template("kvadrurav.html", o=otvet)
+
+@app.route('/post_z')
+def postZ():
+    return render_template("post.html")
+
+@app.route('/post_zz', methods=['POST'])
+def postZZ():
+    print(request.form['first'])
+    print(request.form['second'])
+    return redirect("/post_z")
+
 
 
 if __name__ == '__main__':
