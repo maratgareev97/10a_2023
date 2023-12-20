@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Книжка</title>
+</head>
+<body>
+<h1 align="center">Телефонная книжка</h1>
+<div align="center">
+    <form action="/">
+    <table border="1" width="50%" bgcolor="white">
+        {% for k in spisok %}
+        <tr>
+                <td width="20">
+                    {{k.name}}
+                </td>
+                <td width="80">
+                    {{k.number}}
+                </td>
+        </tr>
+        {% endfor %}
+    </table>
+        <tr>
+         Имя <input type="text" name="newName"><br>
+            Номер <input type="text" name="newNumber"><br>
+
+        <input type="submit">
+        </tr>
+    </form>
+</div>
+</body>
+</html>
