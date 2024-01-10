@@ -20,5 +20,19 @@ def addData():
         print("!!!!!!")
     return redirect("/")
 
+@app.route('/delete', methods=['POST'])
+def deleteData():
+    if request.method=="POST":
+        id=request.form['answer']
+        print(request.form['delete'])
+        client.sendNumberStringForDelete(int(id))
+    return redirect("/")
+
+@app.route('/<id>')
+def updateData(id):
+    result=client.getDataById(id)
+    print(result)
+    return render_template("update.html",id=result)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

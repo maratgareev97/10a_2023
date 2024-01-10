@@ -27,6 +27,22 @@ def getAllData():
     con.close()
     return result
 
+def sendNumberStringForDelete(id):
+    con = connect.connection()  # вызов метода который соединяется с базой
+    cur = con.cursor()  # создание курсора
+    cur.execute("""DELETE FROM school.testtwo WHERE id=%s;""",(id))  # это сам sql запрос
+    con.commit()  # сохранение объекта
+    cur.close()
+    con.close()
+
+def getDataById(id):
+    con = connect.connection()  # вызов метода который соединяется с базой
+    cur = con.cursor()  # создание курсора
+    cur.execute("""select * from testtwo where id=%s""",(id))  # это сам sql запрос
+    result = cur.fetchall()  # сохранение объекта
+    cur.close()
+    con.close()
+    return result
 # createTable("testtwo")
 # addNewData("Петя","312")
 # createTable("test")

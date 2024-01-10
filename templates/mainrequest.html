@@ -16,23 +16,33 @@
 <font color="green">Все плохо</font>
 {% endif %}
 <br>
+
+<form action="/delete" method="post">
 <table border="1">
     <tr bgcolor="yellow">
+        <td>Del</td>
         <td>id</td>
         <td>name</td>
         <td>phone</td>
+        <td>Update</td>
     </tr>
     {% for i in rezult %}
     <tr>
+        <td><input type="radio" name="answer" value={{i.id}}></td>
         <td>{{i.id}}</td>
         <td>{{i.name}}</td>
         <td>{{i.phone}}</td>
+        <td><a href="http://192.168.0.3:5000/{{i.id}}">редактировать</a></td>
     </tr>
     {%endfor%}
 </table>
+    <input type="submit" name="delete" value="Удалить">
+</form>
+
+
 <form action="/add" method="post">
     <input type="text" name="name">
-     <input type="text" name="phone">
+    <input type="text" name="phone">
     <input type="submit">
 </form>
 </body>
