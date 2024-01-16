@@ -43,6 +43,15 @@ def getDataById(id):
     cur.close()
     con.close()
     return result
+
+def updateGetById(id,name, phone):
+    con=connect.connection()
+    cur = con.cursor()
+    cur.execute("""UPDATE testtwo SET name = %s, phone = %s WHERE id = %s;""",(name, phone,id))
+    con.commit() # сохранение изменений
+    cur.close()
+    con.close()
+    print("!!!")
 # createTable("testtwo")
 # addNewData("Петя","312")
 # createTable("test")

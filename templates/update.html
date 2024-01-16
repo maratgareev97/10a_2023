@@ -5,7 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Вы хотете обновить его?</h1>
-{{id}}
+<h1>Вы хотите обновить его?</h1>
+<form action="/update" method="post">
+    {% for i in idNumber%}
+    <input type="hidden" name="id" value="{{i.id}}" >
+    <input type="text" value={{i.name}} name="name">
+    <input type="text" value={{i.phone}} name="phone">
+    <input type="submit">
+    {% endfor %}
+</form>
 </body>
 </html>
