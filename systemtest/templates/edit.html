@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Редактор тестов</h1>
+<form method="post" action="/editquestion">
+    <p>Добавьте Ваш вопрос</p>
+    <div><textarea name="textquestion"></textarea></div>
+    <p>Варианты ответов</p>
+    <div>1. <input type="text" name="question1"></div>
+    <div>2. <input type="text" name="question2"></div>
+    <div>3. <input type="text" name="question3"></div>
+    <div>4. <input type="text" name="question4"></div>
+    <div><select name="select_question">
+        <option disabled>Укажите правильный вариант</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select></div>
+    <div><input type="submit"></div>
+</form>
+
+</body>
+</html>
