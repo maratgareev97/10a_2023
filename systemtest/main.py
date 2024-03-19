@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect
+from services.sierviceLogic import *
+
 
 app = Flask(__name__)
 
@@ -14,7 +16,9 @@ def editquestion():
         question3 = request.form['question3']
         question4 = request.form['question4']
         selectQuestion = request.form['select_question']
-        print(textquestion,question1,question2,question3,question4,selectQuestion)
+
+        addNewData(textquestion,question1,question2,
+                            question3,question4,selectQuestion)
 
     return redirect("/edit")
 
