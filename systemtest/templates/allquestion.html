@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/delete">
+ <table border="1" width="50%" bgcolor="white">
+     <tr>
+         <td>id</td>
+         <td>вопрос</td>
+         <td>ответ1</td>
+         <td>ответ2</td>
+         <td>ответ3</td>
+         <td>ответ4</td>
+         <td>правильный ответ</td>
+         <td>delete</td>
+
+     </tr>
+        {% for k in allData %}
+        <tr>
+                <td width="20" bgcolor="red">
+                    {{k.id}}
+                </td>
+                <td width="80" bgcolor="orange">
+                    {{k.mainquest}}
+                </td>
+             <td width="80" bgcolor="yellow">
+                    {{k.var1}}
+                </td>
+             <td width="80" bgcolor="green">
+                    {{k.var2}}
+                </td>
+             <td width="80" bgcolor="blue">
+                    {{k.var3}}
+                </td>
+             <td width="80" bgcolor="violet">
+                    {{k.var4}}
+                </td>
+             <td width="80" bgcolor="black">
+                    <font color="white"> {{k.result}} </font>
+                </td>
+            <td><input type="radio" name="answer" value={{k.id}}></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit">
+</form>
+</body>
+</html>

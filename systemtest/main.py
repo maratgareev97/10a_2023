@@ -17,10 +17,20 @@ def editquestion():
         question4 = request.form['question4']
         selectQuestion = request.form['select_question']
 
-        addNewData(textquestion,question1,question2,
+        addNewDataService(textquestion,question1,question2,
                             question3,question4,selectQuestion)
-
     return redirect("/edit")
+
+@app.route("/allquestions")
+def allQuestions():
+    allData = getAllDataService()
+    return render_template("allquestion.html", allData=allData)
+
+@app.route("/delete")
+def deleteQuestions():
+    id = request.args.get("answer")
+    sendNumberStringForDeleteService(id)
+    return redirect("/allquestions")
 
 
 if __name__ == '__main__':

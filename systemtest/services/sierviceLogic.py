@@ -4,7 +4,13 @@ import systemtest.dao
 
 import systemtest
 
-def  addNewData(textquestion, question1,question2,
+def  addNewDataService(textquestion, question1,question2,
                 question3, question4, selectQuestion):
-    addNewDataOne(textquestion, question1,question2,
+    addNewDataDao(textquestion, question1,question2,
                question3, question4, selectQuestion)
+def getAllDataService():
+    return getAllDataDao()
+
+def sendNumberStringForDeleteService(id):
+    if id != None:
+        sendNumberStringForDeleteDao(id)
