@@ -16,6 +16,7 @@
          <td>ответ4</td>
          <td>правильный ответ</td>
          <td>delete</td>
+         <td>Обновить</td>
 
      </tr>
         {% for k in allData %}
@@ -42,6 +43,7 @@
                     <font color="white"> {{k.result}} </font>
                 </td>
             <td><input type="radio" name="answer" value={{k.id}}></td>
+            <td><a href="/update/{{k.id}}">Обновить</a></td>
         </tr>
         {% endfor %}
     </table>

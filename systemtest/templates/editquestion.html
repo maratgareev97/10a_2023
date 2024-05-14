@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/update", method="POST">
+ <table border="1" width="50%" bgcolor="white">
+     <tr>
+         <td>id</td>
+         <td>вопрос</td>
+         <td>ответ1</td>
+         <td>ответ2</td>
+         <td>ответ3</td>
+         <td>ответ4</td>
+         <td>правильный ответ</td>
+
+     </tr>
+        {% for k in dataById %}
+        <tr>
+                <td width="20" bgcolor="red">
+                    {{k.id}}
+                </td>
+                <td width="80" bgcolor="orange">
+                    <input type="text" name="textquestion" value="{{k.mainquest}}">
+                </td>
+             <td width="80" bgcolor="yellow">
+                    <input type="text" name="question1" value="{{k.var1}}">
+                </td>
+             <td width="80" bgcolor="green">
+                    <input type="text" name="question2" value="{{k.var2}}">
+                </td>
+             <td width="80" bgcolor="blue">
+                    <input type="text" name="question3" value="{{k.var3}}">
+                </td>
+             <td width="80" bgcolor="violet">
+                    <input type="text" name="question4" value="{{k.var4}}">
+                </td>
+             <td width="80" bgcolor="black">
+                    <font color="white">
+                        <div><select name="select_question">
+                            <option disabled>Укажите правильный вариант</option>
+                            {%if dataById[0].result=="1"%}
+                                <option selected>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            {%endif%}
+                            {%if dataById[0].result=="2"%}
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            {%endif%}
+                            {%if dataById[0].result=="3"%}
+                                <option>1</option>
+                                <option>2</option>
+                                <option selected>3</option>
+                                <option>4</option>
+                            {%endif%}
+                            {%if dataById[0].result=="4"%}
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option selected>4</option>
+                            {%endif%}
+                            </select></div>
+                        <div>
+                        </font>
+                </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="hidden" name="id" value="{{dataById[0].id}}" >
+    <input type="submit">
+</form>
+</body>
+</html>
